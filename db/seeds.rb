@@ -1,4 +1,5 @@
-[
+require_relative "../index.rb"
+all_jokes = [
   {
     "id": 1,
     "type": "general",
@@ -2202,3 +2203,11 @@
     "punchline": "Because he doesn't want to be spotted."
   }
 ]
+
+all_jokes.each do |joke|
+    setup = joke[:setup]
+    punchline = joke[:punchline]
+    category = joke[:type]
+    Joke.create(setup: setup, punchline: punchline, category: category)
+end
+
