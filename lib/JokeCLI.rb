@@ -10,7 +10,8 @@ class JokeCLI
 
     def run
         system('clear')
-        puts "Welcome to the game"
+        Ascii.welcome_page
+        puts "Welcome to Joke Generator!"
         puts
         get_user
         present_menu
