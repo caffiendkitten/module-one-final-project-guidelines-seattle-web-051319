@@ -22,9 +22,11 @@ class JokeCLI
         name = User.find_by(name: user_name)
         if name
             @user = name
+            system("clear")
             puts "Welcome back #{user_name}!"
         else
             @user = User.create(name: user_name)
+            sstem('clear')
             puts "Hello #{user_name}"
         end
         puts
@@ -50,8 +52,7 @@ class JokeCLI
             elsif choice == 3
                 list_favorites
             elsif choice == 4
-                puts "QUITTING"
-                    is_running = false
+                is_running = false
             end
         end
     end
@@ -72,13 +73,46 @@ class JokeCLI
         input = STDIN.gets.chomp.to_i
         if input == 1
             Favorite.create(user_id: @user.id, joke_id: @full_joke[:id])
-        # else
-        #     present_menu
+        else
+            system('clear')
         end
     end
 
     def get_joke_by_category
-
+        system('clear')
+        puts "Which category would you like?"
+        puts
+        puts "1. General Humor"
+        puts "2. Cringy Programming Jokes"
+        puts "3. Knock Knock Jokes"
+        
+        input = STDIN.gets.chomp.to_i
+        if input == 1 
+            system('clear')
+            general_jokes = Joke.all.where(category: 'general')
+            general_joke = general_jokes.sample
+            puts general_joke[:setup]
+            puts general_joke[:punchline]
+            puts
+            ask_for_favorite
+        elsif input == 2
+            system('clear')
+            programming_jokes = Joke.all.where(category: 'programming')
+            programming_joke = programming_jokes.sample
+            puts programming_joke[:setup]
+            puts programming_joke[:punchline]
+            puts
+            ask_for_favorite
+        elsif
+            input == 3
+            system('clear')
+            knock_jokes = Joke.all.where(category: 'knock-knock')
+            knock_knock = knock_jokes.sample
+            puts knock_knock[:setup]
+            puts knock_knock[:punchline]
+            puts
+            ask_for_favorite
+        end
     end
 
     def list_favorites
