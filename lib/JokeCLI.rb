@@ -36,7 +36,8 @@ class JokeCLI
         puts "1. Give me a random joke"
         puts "2. Get a joke by category"
         puts "3. List my favorites"
-        puts "4. Quit"
+        puts "4. Clear my favorites"
+        puts "5. Quit"
         puts
     end
 
@@ -52,6 +53,8 @@ class JokeCLI
             elsif choice == 3
                 list_favorites
             elsif choice == 4
+                clear_favorites
+            elsif choice == 5
                 is_running = false
             end
         end
@@ -137,6 +140,10 @@ class JokeCLI
             puts
             ask_for_favorite
         end
+    end
+
+    def clear_favorites 
+        @user.favorites.clear
     end
 
 
