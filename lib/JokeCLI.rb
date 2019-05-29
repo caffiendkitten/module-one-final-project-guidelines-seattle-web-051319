@@ -50,6 +50,7 @@ class JokeCLI
             elsif choice == 3
                 list_favorites
             elsif choice == 4
+                puts "QUITTING"
                     is_running = false
             end
         end
@@ -71,8 +72,8 @@ class JokeCLI
         input = STDIN.gets.chomp.to_i
         if input == 1
             Favorite.create(user_id: @user.id, joke_id: @full_joke[:id])
-        else
-            present_menu
+        # else
+        #     present_menu
         end
     end
 
