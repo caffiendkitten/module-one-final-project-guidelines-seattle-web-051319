@@ -1,6 +1,7 @@
 class Favorite < ActiveRecord::Base
+   belongs_to :user
+   belongs_to :joke
    
-    belongs_to :users
 
 
 end
