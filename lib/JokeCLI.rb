@@ -78,43 +78,6 @@ class JokeCLI
         end
     end
 
-    def get_joke_by_category
-        system('clear')
-        puts "Which category would you like?"
-        puts
-        puts "1. General Humor"
-        puts "2. Cringy Programming Jokes"
-        puts "3. Knock Knock Jokes"
-        
-        input = STDIN.gets.chomp.to_i
-        if input == 1 
-            system('clear')
-            general_jokes = Joke.all.where(category: 'general')
-            general_joke = general_jokes.sample
-            puts general_joke[:setup]
-            puts general_joke[:punchline]
-            puts
-            ask_for_favorite
-        elsif input == 2
-            system('clear')
-            programming_jokes = Joke.all.where(category: 'programming')
-            programming_joke = programming_jokes.sample
-            puts programming_joke[:setup]
-            puts programming_joke[:punchline]
-            puts
-            ask_for_favorite
-        elsif
-            input == 3
-            system('clear')
-            knock_jokes = Joke.all.where(category: 'knock-knock')
-            knock_knock = knock_jokes.sample
-            puts knock_knock[:setup]
-            puts knock_knock[:punchline]
-            puts
-            ask_for_favorite
-        end
-    end
-
     def list_favorites
         system('clear')
         @favorites = []
@@ -134,6 +97,47 @@ class JokeCLI
             puts
         end
     end 
+
+
+    def get_joke(category = nil)
+        if category == 'general' || category == 'programming' || category == 'knock-knock'
+            category_jokes = Joke.all.where(category: category)
+            @full_joke = category_jokes.sample
+            puts @full_joke[:setup].strip
+            puts @full_joke[:punchline].strip
+        end
+    end
+
+    def prompt_categories
+        puts "Which category would you like?"
+        puts
+        puts "1. General Humor"
+        puts "2. Cringy Programming Jokes"
+        puts "3. Knock Knock Jokes"
+        puts
+    end
+
+    def get_joke_by_category
+        system('clear')
+        prompt_categories
+        input = STDIN.gets.chomp.to_i
+        if input == 1
+            system('clear')
+            get_joke('general')
+            puts
+            ask_for_favorite
+        elsif input == 2
+            system('clear')
+            get_joke('programming')
+            puts
+            ask_for_favorite
+        elsif input == 3
+            system('clear')
+            get_joke('knock-knock')
+            puts
+            ask_for_favorite
+        end
+    end
 
 
 
