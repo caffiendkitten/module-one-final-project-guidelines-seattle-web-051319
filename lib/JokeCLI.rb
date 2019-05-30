@@ -5,7 +5,7 @@ class JokeCLI
     attr_accessor :user, :full_joke, :favorites
 
     def initialize
-
+        @full_joke = full_joke
     end
 
     def run
