@@ -9,10 +9,10 @@
 This program will generate random jokes for the user!
 
 Users will be able to:
- - create a user profile
- - view a random joke or view a random joke by category
- - save an enjoyed joke
- - clear out their list of saved jokes
+ - **C**reate a user profile
+ - **R**ead a random joke or view a random joke by category
+ - **U**pdate a list of enjoyed jokes specific to that user profile
+ - **D**elete their own list of saved jokes
 
 ## Install Instructions
 
