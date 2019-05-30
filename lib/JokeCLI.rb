@@ -12,7 +12,8 @@ class JokeCLI
     def run
         system('clear')
         Ascii.welcome_page
-        puts "Welcome to Joke Generator!"
+        Ascii.welcome_words
+        # puts "Welcome to Joke Generator!"
         puts
         get_user
         present_menu
@@ -25,29 +26,32 @@ class JokeCLI
         if name
             @user = name
             system("clear")
-            puts "Welcome back #{user_name}!"
+            puts
+            puts "Welcome back #{user_name.capitalize}!"
         else
             @user = User.create(name: user_name)
             system('clear')
-            puts "Hello #{user_name}! What would you like to do?"
+            puts
+            puts "Hello #{user_name.capitalize}! What would you like to do?"
         end
         puts
     end
 
-    def present_menu_list
-        puts "1. Give me a random Joke"
-        puts "2. Get a Joke by Category"
-        puts "3. List My Favorites"
-        puts "4. Clear My favorites"
-        puts "5. List Dislikes"
-        puts "6. Clear Dislikes"
-        puts "7. Quit"
-    end
+    # def present_menu_list
+    #     puts "1. Give me a random Joke"
+    #     puts "2. Get a Joke by Category"
+    #     puts "3. List My Favorites"
+    #     puts "4. Clear My favorites"
+    #     puts "5. List Dislikes"
+    #     puts "6. Clear Dislikes"
+    #     puts "7. Quit"
+    # end
 
     def present_menu
         is_running = true
         while is_running 
-            present_menu_list
+            # present_menu_list
+            MenusAvailable.present_menu_list
             choice = STDIN.gets.chomp.to_i
             if choice == 1
                 get_joke_excluding_dislikes
@@ -68,11 +72,12 @@ class JokeCLI
     end
 
     def ask_for_preference
-        puts "How do you feel about this one?"
-        puts "1. Save to my favorites!"
-        puts "2. Booooo.... Dislike!"
-        puts "3. Just give me a new one"
-        puts "4. Main Menu"
+        # puts "How do you feel about this one?"
+        # puts "1. Save to my favorites!"
+        # puts "2. Booooo.... Dislike!"
+        # puts "3. Just give me a new one"
+        # puts "4. Main Menu"
+        MenusAvailable.ask_for_preference
         input = STDIN.gets.chomp.to_i
         if input == 1
             Favorite.create(user_id: @user.id, joke_id: @full_joke[:id])
@@ -149,7 +154,8 @@ class JokeCLI
 
     def get_joke_by_category
         system('clear')
-        prompt_categories
+        MenusAvailable.prompt_categories
+        # prompt_categories
         input = STDIN.gets.chomp.to_i
         if input == 1
             system('clear')
