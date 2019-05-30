@@ -73,7 +73,7 @@ class JokeCLI
     def ask_for_favorite
         puts "Do you wanna add this to your favorites?"
         puts "1. Yes!"
-        puts "2. Not particiulary."
+        puts "2. Not particularly."
         input = STDIN.gets.chomp.to_i
         if input == 1
             Favorite.create(user_id: @user.id, joke_id: @full_joke[:id])
