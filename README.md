@@ -1,10 +1,10 @@
-### Module One Final Project Guide
+#** Module One Final Project Guide **
 
 # ~ Welcome to the Joke Generator! ~
 
 This program will generate random jokes for the user!
 
-##Install Instructions
+## Install Instructions
 
 - Fork and clone the repository at "https://github.com/caffiendkitten/module-one-final-project-guidelines-seattle-web-051319"
 
