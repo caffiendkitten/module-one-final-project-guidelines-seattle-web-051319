@@ -27,8 +27,8 @@ class JokeCLI
             puts "Welcome back #{user_name}!"
         else
             @user = User.create(name: user_name)
-            sstem('clear')
-            puts "Hello #{user_name}"
+            system('clear')
+            puts "Hello #{user_name}! What would you like to do?"
         end
         puts
     end
@@ -77,9 +77,8 @@ class JokeCLI
         input = STDIN.gets.chomp.to_i
         if input == 1
             Favorite.create(user_id: @user.id, joke_id: @full_joke[:id])
-        else
-            system('clear')
         end
+        system('clear')
     end
 
     def list_favorites
@@ -145,10 +144,8 @@ class JokeCLI
 
     def clear_favorites 
         @user.favorites.clear
+        system('clear')
     end
-
-
-
 
 
 
