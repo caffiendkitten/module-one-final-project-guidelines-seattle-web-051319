@@ -2,7 +2,7 @@
 # ~ Welcome to the Joke Generator! ~
 
 
-![Alt Text](https://giphy.com/gifs/daniel-radcliffe-110p6MTAv0x5Cw)
+![Alt Text](https://media.giphy.com/media/110p6MTAv0x5Cw/giphy.gif)
 
 
 
