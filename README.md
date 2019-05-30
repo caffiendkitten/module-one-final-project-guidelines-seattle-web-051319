@@ -1,6 +1,10 @@
 # Module One Final Project Guide
-
 # ~ Welcome to the Joke Generator! ~
+
+
+![alt text](https://giphy.com/gifs/daniel-radcliffe-110p6MTAv0x5Cw "Tell me a joke.")
+
+
 
 This program will generate random jokes for the user!
 
