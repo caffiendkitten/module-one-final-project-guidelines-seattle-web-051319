@@ -2,7 +2,7 @@
 # ~ Welcome to the Joke Generator! ~
 
 
-![alt text](https://giphy.com/gifs/daniel-radcliffe-110p6MTAv0x5Cw "Tell me a joke.")
+![Alt Text](https://giphy.com/gifs/daniel-radcliffe-110p6MTAv0x5Cw)
 
 
 
