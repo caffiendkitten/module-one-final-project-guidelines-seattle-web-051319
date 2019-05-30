@@ -2,10 +2,11 @@ require_relative '../config/environment'
 
 class JokeCLI
     
-    attr_accessor :user, :full_joke, :favorites
+    attr_accessor :user, :full_joke, :favorites, :dislikes, :excluded_list
 
     def initialize
         @full_joke = full_joke
+        @excluded_list = excluded_list
     end
 
     def run
@@ -34,12 +35,13 @@ class JokeCLI
     end
 
     def present_menu_list
-        puts "1. Give me a random joke"
-        puts "2. Get a joke by category"
-        puts "3. List my favorites"
-        puts "4. Clear my favorites"
-        puts "5. Quit"
-        puts
+        puts "1. Give me a random Joke"
+        puts "2. Get a Joke by Category"
+        puts "3. List My Favorites"
+        puts "4. Clear My favorites"
+        puts "5. List Dislikes"
+        puts "6. Clear Dislikes"
+        puts "7. Quit"
     end
 
     def present_menu
@@ -48,7 +50,7 @@ class JokeCLI
             present_menu_list
             choice = STDIN.gets.chomp.to_i
             if choice == 1
-                get_random_joke
+                get_joke_excluding_dislikes
             elsif choice == 2
                 get_joke_by_category
             elsif choice == 3
@@ -56,27 +58,32 @@ class JokeCLI
             elsif choice == 4
                 clear_favorites
             elsif choice == 5
+                list_dislikes
+            elsif choice == 6
+                clear_dislikes
+            elsif choice == 7
                 is_running = false
             end
         end
     end
 
-    def get_random_joke
-        system('clear')
-        @full_joke = Joke.all.sample 
-        puts @full_joke[:setup]
-        puts @full_joke[:punchline].strip
-        puts
-        ask_for_favorite
-    end
-
-    def ask_for_favorite
-        puts "Do you wanna add this to your favorites?"
-        puts "1. Yes!"
-        puts "2. Not particularly."
+    def ask_for_preference
+        puts "How do you feel about this one?"
+        puts "1. Save to my favorites!"
+        puts "2. Booooo.... Dislike!"
+        puts "3. Just give me a new one"
+        puts "4. Main Menu"
         input = STDIN.gets.chomp.to_i
         if input == 1
             Favorite.create(user_id: @user.id, joke_id: @full_joke[:id])
+            get_joke_excluding_dislikes
+        elsif input == 2
+            Dislike.create(user_id: @user.id, joke_id: @full_joke[:id])
+            get_joke_excluding_dislikes
+        elsif input == 3
+            get_joke_excluding_dislikes
+        else
+
         end
         system('clear')
     end
@@ -101,13 +108,33 @@ class JokeCLI
         end
     end 
 
+    def list_dislikes
+        system('clear')
+        @dislikes = []
+        @user = User.find(@user.id)
+        @user.dislikes.each do |x|
+            dislike_joke = Joke.find_by(id: x.joke_id)
+            @dislikes << dislike_joke
+        end
+        if @dislikes.length > 0
+            @dislikes.each.with_index do |joke, index|
+                puts "#{index + 1}. #{joke.setup}"
+                puts "      -#{joke.punchline}"
+                puts
+            end
+        else
+            puts "You haven't disliked any jokes yet! Maybe that's a good thing..."
+            puts
+        end
+    end 
+
 
     def get_joke(category = nil)
         if category == 'general' || category == 'programming' || category == 'knock-knock'
             category_jokes = Joke.all.where(category: category)
             @full_joke = category_jokes.sample
-            puts @full_joke[:setup].strip
-            puts @full_joke[:punchline].strip
+                puts @full_joke[:setup]
+                puts @full_joke[:punchline]
         end
     end
 
@@ -128,17 +155,17 @@ class JokeCLI
             system('clear')
             get_joke('general')
             puts
-            ask_for_favorite
+            ask_for_preference
         elsif input == 2
             system('clear')
             get_joke('programming')
             puts
-            ask_for_favorite
+            ask_for_preference
         elsif input == 3
             system('clear')
             get_joke('knock-knock')
             puts
-            ask_for_favorite
+            ask_for_preference
         end
     end
 
@@ -147,6 +174,21 @@ class JokeCLI
         system('clear')
     end
 
+    def clear_dislikes 
+        @user.dislikes.clear
+        system('clear')
+    end
 
-
+    def get_joke_excluding_dislikes
+        disliked_jokes = @user.dislikes.map {|dislike| dislike.joke}
+        @excluded_list = Joke.all.select do |joke|
+            disliked_jokes.include?(joke) == false
+        end
+         @full_joke = @excluded_list.sample
+         system('clear')
+         puts @full_joke[:setup]
+         puts @full_joke[:punchline]
+         puts
+         ask_for_preference
+    end
 end

@@ -2205,9 +2205,9 @@ all_jokes = [
 ]
 
 all_jokes.each do |joke|
-    setup = joke[:setup]
-    punchline = joke[:punchline]
-    category = joke[:type]
+    setup = joke[:setup].strip
+    punchline = joke[:punchline].strip
+    category = joke[:type].strip
     Joke.create(setup: setup, punchline: punchline, category: category)
 end
 
