@@ -25,11 +25,13 @@ Users will be able to:
 
 2. `cd` into the correct directory, after opening the file, we suggest deleting the 'development.db' (if it exists) file in the event the database is skewed from cloning.
 
-3. After deleting the database, re-seed the database by first running `db:migrate` in your terminal to make sure the database is structured correctly.
+3. Make sure to `bundle install` in your terminal to make sure all your gems are up to date
 
-4. Once the migration files are in order, run `db:seed` in your terminal to repopulate the database.
+4. After deleting the database, re-seed the database by first running `db:migrate` in your terminal to make sure the database is structured correctly.
 
-5. To run the program, enter `rake run` in your console to begin the game!
+5. Once the migration files are in order, run `db:seed` in your terminal to repopulate the database.
+
+6. To run the program, enter `rake run` in your console to begin the game!
 
 ### Contributors Guide
 
