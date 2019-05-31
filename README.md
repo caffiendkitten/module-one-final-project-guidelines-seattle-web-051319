@@ -16,10 +16,6 @@ Users will be able to:
 
 ## Demo Video
 
-
-![Watch the Video](https://media.giphy.com/media/xUySTBBMfUkSc1axYQ/giphy.gif)
-
-
 [Click here to view the demo Video](https://youtu.be/cDwFE1yhrSM)
 
 
@@ -46,7 +42,7 @@ Users will be able to:
 - Ascii -  https://www.asciiart.eu. Shoutout to their smiley face!
 
 
-####Learn.co Educational Content License
+#### Learn.co Educational Content License
 
 Copyright (c) 2015 Flatiron School, Inc
 
