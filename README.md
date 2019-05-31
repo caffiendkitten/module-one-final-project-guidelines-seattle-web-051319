@@ -17,7 +17,7 @@ Users will be able to:
 ## Demo Video
 
 
-!(https://media.giphy.com/media/xUySTBBMfUkSc1axYQ/giphy.gif)
+![](https://media.giphy.com/media/xUySTBBMfUkSc1axYQ/giphy.gif )
 
 
 [Click here to view the demo Video](https://youtu.be/cDwFE1yhrSM)
