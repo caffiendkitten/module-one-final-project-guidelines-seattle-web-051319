@@ -14,6 +14,13 @@ Users will be able to:
  - **U**pdate a list of enjoyed jokes specific to that user profile
  - **D**elete their own list of saved jokes
 
+
+## Demo Video
+
+![Alt Text](https://media.giphy.com/media/xUySTBBMfUkSc1axYQ/giphy.gif)
+[I'm an inline-style link](https://youtu.be/cDwFE1yhrSM)
+
+
 ## Install Instructions
 
 1. Fork and clone the repository at "https://github.com/caffiendkitten/module-one-final-project-guidelines-seattle-web-051319"
