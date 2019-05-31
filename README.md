@@ -5,7 +5,6 @@
 ![Alt Text](https://media.giphy.com/media/110p6MTAv0x5Cw/giphy.gif)
 
 
-
 This program will generate random jokes for the user!
 
 Users will be able to:
@@ -18,20 +17,20 @@ Users will be able to:
 ## Demo Video
 
 ![Alt Text](https://media.giphy.com/media/xUySTBBMfUkSc1axYQ/giphy.gif)
-[I'm an inline-style link](https://youtu.be/cDwFE1yhrSM)
+[Click here to view the demo Video](https://youtu.be/cDwFE1yhrSM)
 
 
 ## Install Instructions
 
 1. Fork and clone the repository at "https://github.com/caffiendkitten/module-one-final-project-guidelines-seattle-web-051319"
 
-2. cd into the correct directory, after opening the file, we suggest deleting the 'development.db' (if it exists) file in the event the database is skewed from cloning.
+2. `cd` into the correct directory, after opening the file, we suggest deleting the 'development.db' (if it exists) file in the event the database is skewed from cloning.
 
-3. after deleting the database, re-seed the database by first running `db:migrate` in your terminal to make sure the database is structured correctly.
+3. After deleting the database, re-seed the database by first running `db:migrate` in your terminal to make sure the database is structured correctly.
 
-4. once the migration files are in order, run `db:seed` in your terminal to repopulate the database.
+4. Once the migration files are in order, run `db:seed` in your terminal to repopulate the database.
 
-5. to run the program, enter `rake run` in your console to begin the game!
+5. To run the program, enter `rake run` in your console to begin the game!
 
 ### Contributors Guide
 
