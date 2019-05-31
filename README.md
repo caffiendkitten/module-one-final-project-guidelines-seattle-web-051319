@@ -16,7 +16,7 @@ Users will be able to:
 
 ## Demo Video
 
-![Alt Text](https://media.giphy.com/media/xUySTBBMfUkSc1axYQ/giphy.gif)
+![Alt Text](https://gph.is/2k08q8u)
 
 [Click here to view the demo Video](https://youtu.be/cDwFE1yhrSM)
 
